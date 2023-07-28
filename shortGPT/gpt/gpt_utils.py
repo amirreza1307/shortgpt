@@ -82,7 +82,7 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
                 ]
             print("\n------\n")
             print(system)
-            print("\n")
+            print("\n###################3\n")
             print(chat_prompt)
             print("\n--------\n")
             text = input()
