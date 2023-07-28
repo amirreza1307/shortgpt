@@ -80,9 +80,11 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
                     {"role": "system", "content": system},
                     {"role": "user", "content": chat_prompt}
                 ]
+            print("\n------\n")
             print(system)
             print("\n")
             print(chat_prompt)
+            print"\n--------\n"
             text = input()
             if remove_nl:
                 text = re.sub('\s+', ' ', text)
