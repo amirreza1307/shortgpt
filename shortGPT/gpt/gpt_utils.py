@@ -68,7 +68,7 @@ def open_file(filepath):
 
 def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the answer to anything", temp=0.7, model="gpt-3.5-turbo", max_tokens=1000, remove_nl=True, conversation=None):
     openai.api_key = ApiKeyManager.get_api_key("OPENAI")
-    openai.api_base = 'https://api.pawan.krd/v1'
+    openai.api_base = 'https://api.pawan.krd/unfiltered/v1'
     max_retry = 5
     retry = 0
     while True:
@@ -80,12 +80,13 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
                     {"role": "system", "content": system},
                     {"role": "user", "content": chat_prompt}
                 ]
-            print("\n------\n")
-            print(system)
-            print("\n")
-            print(chat_prompt)
-            print("\n--------\n")
-            text = input()
+            response = openai.ChatCompletion.create(
+                model=model,
+                messages=messages,
+                max_tokens=max_tokens,
+                temperature=temp)
+            text = response['choices'][0]['message']['content'].strip()
+            sleep(31)
             if remove_nl:
                 text = re.sub('\s+', ' ', text)
             filename = '%s_gpt3.txt' % time()
@@ -99,4 +100,4 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
             if retry >= max_retry:
                 raise Exception("GPT3 error: %s" % oops)
             print('Error communicating with OpenAI:', oops)
-            sleep(1)
+            sleep(31)
