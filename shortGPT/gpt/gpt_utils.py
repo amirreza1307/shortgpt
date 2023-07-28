@@ -86,6 +86,7 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
                 max_tokens=max_tokens,
                 temperature=temp)
             text = response['choices'][0]['message']['content'].strip()
+            sleep(31)
             if remove_nl:
                 text = re.sub('\s+', ' ', text)
             filename = '%s_gpt3.txt' % time()
@@ -99,4 +100,4 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
             if retry >= max_retry:
                 raise Exception("GPT3 error: %s" % oops)
             print('Error communicating with OpenAI:', oops)
-            sleep(1)
+            sleep(31)
