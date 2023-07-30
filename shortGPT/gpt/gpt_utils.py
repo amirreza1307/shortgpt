@@ -79,14 +79,11 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
                 messages = [
                     {"role": "system", "content": system},
                     {"role": "user", "content": chat_prompt}
-                ]
-
-            #---------------------    
+                ]  
             safeInput = system + "\n" + chat_prompt
             print("------------\n")
             print(safeInput)
             print("-------------\n")
-            # Prepare the data payload
             data = {
                 "prompt": safeInput
             }
@@ -101,12 +98,8 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
                 "Origin": "https://chatbot.theb.ai",
                 "Referer": "https://chatbot.theb.ai/"
             }
-
-            # Send the POST request
             url = "https://chatbot.theb.ai/api/chat-process"
             response = requests.post(url, data=payload, headers=headers)
-
-            # Process the response
             if response.status_code == 200:
                 response_text = response.text
 
