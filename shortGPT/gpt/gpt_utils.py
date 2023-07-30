@@ -83,7 +83,9 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
 
             #---------------------    
             safeInput = system + "\n" + chat_prompt
-
+            print("------------\n")
+            print(safeInput)
+            print("-------------\n")
             # Prepare the data payload
             data = {
                 "prompt": safeInput
@@ -116,6 +118,9 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
                 text = response_json['text']
             else:
                 print("Error:", response.status_code)
+
+            print(text)
+            print("--------------\n")    
             #--------------------
             if remove_nl:
                 text = re.sub('\s+', ' ', text)
