@@ -1,34 +1,16 @@
-# 🚀🎬 ShortGPT
-[![](https://dcbadge.vercel.app/api/server/uERx39ru3R?compact=true&style=flat)](https://discord.gg/uERx39ru3R)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/rayventurahq.svg?style=social&label=Follow%20%40RayVentura)](https://twitter.com/RayVenturaHQ)
-[![GitHub star chart](https://img.shields.io/github/stars/rayventura/shortgpt?style=social)](https://star-history.com/#rayventura/shortgpt)
+
+# 🚀🎬 ShortGPT without needing openai api
 <div align="center">
     <img src="https://github.com/RayVentura/ShortGPT/assets/121462835/083c8dc3-bac5-42c1-a08d-3ff9686d18c5" alt="ShortGPT-logo" style="border-radius: 20px;" width="22%"/>
 </div>
-<div align="center">
-  <a href="https://discord.gg/uERx39ru3R">
-    <img src="https://img.shields.io/badge/discord-join%20chat-blue.svg" alt="Join our Discord" height="34">
-  </a>
-</div>
+
 
 <div align="center">
-⚡ Automating video and short content creation with AI ⚡
+⚡ Automating video and short content creation with AI without needing openai api ⚡ <br>
+    Main Repositories : https://github.com/RayVentura/ShortGPT <br>
+    Note : in config for openai api put a random key, it's not important
 </div>
 
-## 🎥 Showcase ([Full video on YouTube](https://youtu.be/hpoSHq-ER8U))
-
-https://github.com/RayVentura/ShortGPT/assets/121462835/a802faad-0fd7-4fcb-aa82-6365c27ea5fe
-## 🎥 Voice Dubbing
-
-
-https://github.com/RayVentura/ShortGPT/assets/121462835/06f51b2d-f8b1-4a23-b299-55e0e18902ef
-
-## 🌟 Show Your Support
-We hope you find ShortGPT helpful! If you do, let us know by giving us a star ⭐ on the repo. It's easy, just click on the 'Star' button at the top right of the page. Your support means a lot to us and keeps us motivated to improve and expand ShortGPT. Thank you and happy content creating! 🎉 
-
-[![GitHub star chart](https://img.shields.io/github/stars/rayventura/shortgpt?style=social)](https://github.com/RayVentura/ShortGPT/stargazers)
-## 🛠️ How it works
-![alt text](https://github.com/RayVentura/ShortGPT/assets/121462835/fcee74d4-f856-4481-949f-244558bf3bfa)
 ## 📝 Introduction to ShortGPT 
 ShortGPT is a powerful framework for automating content creation. It simplifies video creation, footage sourcing, voiceover synthesis, and editing tasks.
 
@@ -44,30 +26,36 @@ ShortGPT is a powerful framework for automating content creation. It simplifies 
 
 - 🧠 **Memory and persistency**: Ensures long-term persistency of automated editing variables with TinyDB.
 
-## 🚀 Quick Start: Run ShortGPT on Google Colab (https://colab.research.google.com/drive/1_2UKdpF6lqxCqWaAcZb3rwMVQqtbisdE?usp=sharing)
+## 🚀 Quick Start: Run ShortGPT on Google Colab
 
 If you prefer not to install the prerequisites on your local system, you can use the Google Colab notebook. This option is free and requires no installation setup.
 
-1. Click on the link to the Google Colab notebook: [https://colab.research.google.com/drive/1_2UKdpF6lqxCqWaAcZb3rwMVQqtbisdE?usp=sharing](https://colab.research.google.com/drive/1_2UKdpF6lqxCqWaAcZb3rwMVQqtbisdE?usp=sharing)
+1. Click on the link to the Google Colab notebook: [https://colab.research.google.com/drive/1ddlWYH8OYBS62pew1p1nx6L6j_iLf1-K?usp=sharing](https://colab.research.google.com/drive/1ddlWYH8OYBS62pew1p1nx6L6j_iLf1-K?usp=sharing)
 
 2. Once you're in the notebook, simply run the cells in order from top to bottom. You can do this by clicking on each cell and pressing the 'Play' button, or by using the keyboard . Enjoy using ShortGPT!
 
+Note : in config for openai api put a random key, it's not important 
 # Instructions for running shortGPT
+
 This guide provides step-by-step instructions for installing ImageMagick and FFmpeg on your system, which are both required to do automated editing. Once installed, you can proceed to run `runShortGPT.py` successfully.
 
 ## Prerequisites
+
 Before you begin, ensure that you have the following prerequisites installed on your system:
 - Python 3.x
 - Pip (Python package installer)
 
 ## Installation Steps
+
 Follow the instructions below to install ImageMagick, FFmpeg, and clone the shortGPT repository:
 
 ### Step 1: Install ImageMagick
+
 1. For `Windows` download the installer from the official ImageMagick website and follow the installation instructions.
       
       [https://imagemagick.org/script/download.php](https://imagemagick.org/script/download.php)
-          
+      
+     
 2. For Ubuntu/Debian-based systems, use the command:
      ```
      sudo apt-get install imagemagick
@@ -80,13 +68,17 @@ Follow the instructions below to install ImageMagick, FFmpeg, and clone the shor
      ```
      brew install imagemagick
      ```
+     
+
 2. Verify the installation by running the following command:
    ```
    convert --version
    ```
+
    You should see the ImageMagick version information if the installation was successful.
 
 ### Step 2: Install FFmpeg (REQUIRED FOR SHORTGPT TO WORK)
+
 1. For `Windows`Download the FFmpeg binaries from this Windows Installer (It will download ffmpeg, ffprobe and add it to your path).
       
       [https://github.com/icedterminal/ffmpeg-installer/releases/tag/6.0.0.20230306](https://github.com/icedterminal/ffmpeg-installer/releases/tag/6.0.0.20230306)
@@ -103,6 +95,7 @@ Follow the instructions below to install ImageMagick, FFmpeg, and clone the shor
    ```
    ffmpeg -version
    ```
+
    You should see the FFmpeg version information if the installation was successful.
 
 ### Step 3: Clone the shortGPT Repository
@@ -143,7 +136,7 @@ Follow these steps to add your OpenAI and ElevenLabs API keys:
 
 1. Open [http://localhost:31415/?__theme=light](http://localhost:31415/?__theme=light) from a web browser. 
 2. Click on the `config` tab located at the left side bar of the user interface.
-3. Add your `OPENAI API KEY` and `ELEVENLABS API KEY` in the corresponding input fields.
+3. Add `A RandomOPENAI API KEY` and `ELEVENLABS API KEY` in the corresponding input fields.
 4. Click `Save` to save your API keys.
 
 That's it! You have successfully set up your API keys and can now utilize the functionality of ShortGPT in the Gradio interface.
@@ -162,12 +155,6 @@ That's it! You have successfully set up your API keys and can now utilize the fu
 
 More documentation incomming, please be patient.
 
-## 💁 Contributing
-
-As an open-source project in a rapidly developing field, we are extremely open to contributions, whether it would be in the form of a new feature, improved infrastructure, or better documentation.
-
-
-
 ## Technologies Used
 
 ShortGPT utilizes the following technologies to power its functionality:
@@ -183,15 +170,3 @@ ShortGPT utilizes the following technologies to power its functionality:
 - **Bing Image**: Bing Image is used for sourcing images, providing a comprehensive database for ShortGPT to retrieve relevant visuals.
 
 These technologies work together to provide a seamless and efficient experience in automating video and short content creation with AI.
-## 🔗 Get in touch on Twitter 🐦
-
-Keep up with the latest happenings, announcements, and insights about Short-GPT by checking out our Twitter accounts. Spark a conversation with our developer and the AI's own account for fascinating dialogues, latest news about the project, and more.
-
-- **Developer**: Stay updated [@RayVentura](https://twitter.com/RayVenturaHQ). Deep-dive into behind-the-scenes, project news, and related topics from the person behind ShortGPT.
-
-We're eager to interact with you and listen to your feedback, concepts, and experiences with Short-GPT. Come on board on Twitter and let's navigate the future of AI as a team! 💡🤖
-<p align="center">
-  <a href="https://star-history.com/#RayVentura/ShortGPT&Date">
-    <img src="https://api.star-history.com/svg?repos=RayVentura/ShortGPT&type=Date" alt="Star History Chart">
-  </a>
-</p>
