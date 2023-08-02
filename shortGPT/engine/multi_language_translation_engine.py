@@ -9,18 +9,17 @@ from shortGPT.audio.audio_duration import get_asset_duration
 from shortGPT.audio.audio_utils import (audioToText, get_asset_duration,
                                         run_background_audio_split,
                                         speedUpAudio)
-from shortGPT.audio.voice_module import VoiceModule
+from shortGPT.audio.eleven_voice_module import VoiceModule
 from shortGPT.config.languages import ACRONYM_LANGUAGE_MAPPING, Language
 from shortGPT.editing_framework.editing_engine import (EditingEngine,
                                                        EditingStep)
 from shortGPT.editing_utils.captions import (getCaptionsWithTime,
                                              getSpeechBlocks)
 from shortGPT.editing_utils.handle_videos import get_aspect_ratio
-from shortGPT.engine.abstract_content_engine import AbstractContentEngine
+from shortGPT.engine.abstract_content_engine import CONTENT_DB, AbstractContentEngine
 from shortGPT.gpt.gpt_translate import translateContent
 
-
-class ContentTranslationEngine(AbstractContentEngine):
+class MultiLanguageTranslationEngine(AbstractContentEngine):
 
     def __init__(self, voiceModule: VoiceModule, src_url: str = "", target_language: Language = Language.ENGLISH, use_captions=False, id=""):
         super().__init__(id, "content_translation", target_language, voiceModule)
@@ -40,12 +39,20 @@ class ContentTranslationEngine(AbstractContentEngine):
         }
 
     def _transcribe_audio(self):
-        video_audio, _ = get_asset_duration(self._db_src_url, isVideo=False)
-        self.verifyParameters(content_path=video_audio)
-        self.logger(f"1/5 - Transcribing original audio to text...")
-        whispered = audioToText(video_audio, model_size='base')
-        self._db_speech_blocks = getSpeechBlocks(whispered, silence_time=0.8)
-        if (ACRONYM_LANGUAGE_MAPPING.get(whispered['language']) == Language(self._db_target_language)):
+        cached_translation = CONTENT_DB.content_collection.find_one({
+        "content_type": 'content_translation',
+        'src_url': self._db_src_url,
+        'ready_to_upload': True
+        })
+        if not (cached_translation and 'speech_blocks' in cached_translation and 'original_language' in cached_translation):
+            video_audio, _ = get_asset_duration(self._db_src_url, isVideo=False)
+            self.verifyParameters(content_path=video_audio)
+            self.logger(f"1/5 - Transcribing original audio to text...")
+            whispered = audioToText(video_audio, model_size='base')
+            self._db_speech_blocks = getSpeechBlocks(whispered, silence_time=0.8)
+            self._db_original_language = whispered['language']
+        
+        if (ACRONYM_LANGUAGE_MAPPING.get(self._db_original_language) == Language(self._db_target_language)):
             self._db_translated_timed_sentences = self._db_speech_blocks
             self._db_should_translate = False
 
@@ -118,6 +125,7 @@ class ContentTranslationEngine(AbstractContentEngine):
         self._db_video_path = self.dynamicAssetDir+"translated_content.mp4"
 
         editing_engine.renderVideo(self._db_video_path, logger=self.logger)
+
     def _add_metadata(self):
         self.logger(f"5 / 5 - Saving translated video")
         now = datetime.datetime.now()
