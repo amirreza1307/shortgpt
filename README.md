@@ -1,4 +1,4 @@
-
+🔴 chatbot.theb.ai is down and this repository won't work until a new solution is found
 # 🚀🎬 ShortGPT without needing openai api
 <div align="center">
     <img src="https://github.com/RayVentura/ShortGPT/assets/121462835/083c8dc3-bac5-42c1-a08d-3ff9686d18c5" alt="ShortGPT-logo" style="border-radius: 20px;" width="22%"/>
