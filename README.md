@@ -1,5 +1,5 @@
 🔴 chatbot.theb.ai is down and this repository won't work until a new solution is found <br>
-**I did not find any other free api, but I set the chatgpt prompt to manual mode.**
+**I did not find any other free api, but I set the chatgpt prompt to manual mode.**(it's not a good way but it's free!)
 
 # 🚀🎬 ShortGPT without needing openai api
 <div align="center">
