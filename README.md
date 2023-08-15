@@ -1,4 +1,4 @@
-🔴 chatbot.theb.ai is down and this repository won't work until a new solution is found
+🔴 chatbot.theb.ai is down and this repository won't work until a new solution is found <br>
 **I did not find any other free api, but I set the chatgpt prompt to manual mode.**
 
 # 🚀🎬 ShortGPT without needing openai api
