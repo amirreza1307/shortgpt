@@ -84,36 +84,7 @@ def gpt3Turbo_completion(chat_prompt="", system="You are an AI that can give the
             print("------------\n")
             print(safeInput)
             print("-------------\n")
-            data = {
-                "prompt": safeInput
-            }
-            payload = json.dumps(data)
-
-            # Set the headers
-            headers = {
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/110.0",
-                "Accept": "application/json, text/plain, */*",
-                "Accept-Language": "en-US,en;q=0.5",
-                "Content-Type": "application/json",
-                "Origin": "https://chatbot.theb.ai",
-                "Referer": "https://chatbot.theb.ai/"
-            }
-            url = "https://chatbot.theb.ai/api/chat-process"
-            response = requests.post(url, data=payload, headers=headers)
-            if response.status_code == 200:
-                response_text = response.text
-
-                # Find the last JSON string in the response text
-                json_strings = response_text.strip().split('\n')
-                last_json_string = json_strings[-1]
-
-                response_json = json.loads(last_json_string)
-                text = response_json['text']
-            else:
-                print("Error:", response.status_code)
-
-            print(text)
-            print("--------------\n")    
+            text = input("Enter the above text in chatgpt and enter the answer:")    
             #--------------------
             if remove_nl:
                 text = re.sub('\s+', ' ', text)
