@@ -1,5 +1,5 @@
 🔴 chatbot.theb.ai is down and this repository won't work until a new solution is found <br>
-**I did not find any other free api, but I set the chatgpt prompt to manual mode.** (it's not a good way but it's free!)
+**I did not find other free api, but I set the chatgpt prompt to manual mode.** (it's not a good way but it's free!)
 - after run shortgpt in gradio.live back to colab
 - copy prompt in red box and paste in a free chatgpt (you can find easy)
 - then copy chatgpt asnwer in yellow box and press enter key <br> 
